@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Redirect URL Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="doc-intro">
+        <h2>Codex CLIのインストール</h2>
+        <ol>
+          <li>
+            ブラウザ上の GitHub Codespaces のターミナルを使える状態にし、以下を実行して Codex をインストールします。
+            <div class="doc-code-block">
+              <button type="button" data-copy="docCode1" data-label="Codex インストールコマンドのコピー">コピー</button>
+              <pre id="docCode1"><code>npm install -g @openai/codex</code></pre>
+            </div>
+          </li>
+          <li>
+            Codex を起動するには次を実行します。
+            <div class="doc-code-block">
+              <button type="button" data-copy="docCode2" data-label="Codex 起動コマンドのコピー">コピー</button>
+              <pre id="docCode2"><code>codex</code></pre>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <header>
+        <h1>Codex Redirect URL ジェネレーター</h1>
+        <p>GitHub Codespaces での OAuth 認証</p>
+        <figure class="guide-figure">
+          <img src="assets/github-codespaces-oauth.png" alt="GitHub Codespaces でリダイレクト URL を右クリックしコピーする手順" width="644" height="728" />
+          <figcaption>リダイレクト URL をコピーして OAuth コールバックに利用する手順例</figcaption>
+        </figure>
+      </header>
+
+      <section>
+        <form id="generatorForm" novalidate>
+          <div class="input-row">
+            <label for="urlInput">リダイレクト先 URL</label>
+            <div class="input-control">
+              <input
+                id="urlInput"
+                name="url"
+                type="url"
+                inputmode="url"
+                autocomplete="off"
+                placeholder="https://example.com/callback"
+                required
+              />
+              <button type="submit">コードを生成</button>
+            </div>
+          </div>
+        </form>
+        <p id="statusMessage" class="status" hidden></p>
+      </section>
+
+      <section id="output" class="output-panel is-hidden" aria-live="polite">
+        <h2>ターミナルに下記を順番に入力して実行する</h2>
+        <div class="code-block">
+          <button type="button" data-copy="code1" data-label="環境変数のコピー">コピー</button>
+          <pre id="code1" aria-label="環境変数設定コード"></pre>
+        </div>
+        <div class="code-block">
+          <button type="button" data-copy="code2" data-label="curl コマンドのコピー">コピー</button>
+          <pre id="code2" aria-label="curl コマンド"></pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
+
